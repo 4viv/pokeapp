@@ -1,0 +1,24 @@
+.containerflex {
+  padding: 20px;
+  width: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.item {
+  width: 25%;
+  align-items: center;
+  text-align: center;
+  margin: 1em;
+}
+
+.form-control {
+  border: solid red 2px;
+  border-radius: 20px;
+}
+
+pagination-controls {
+  text-align: center;
+}

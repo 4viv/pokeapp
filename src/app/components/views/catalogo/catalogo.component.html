@@ -1,1 +1,30 @@
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<div class="container mt-2">
+  <input
+    type="text"
+    class="form-control form-control-lg text-center"
+    placeholder="Busca un pokemon"
+    [(ngModel)]="name"
+    (keyup.enter)="searchPokemon()"
+  />
+</div>
+<div class class="containerflex">
+  <div
+    *ngFor="
+      let item of pokemones
+        | paginate
+          : { itemsPerPage: 20, currentPage: page, totalItems: totalPokemons }
+    "
+    class="item"
+  >
+    <a (click)="getDetail(item.id)">
+      <img [src]="item.sprites.front_default" />
+    </a>
+    <div>
+      <span>{{ item.id }} - {{ item.name }} </span>
+    </div>
+  </div>
+</div>
+<pagination-controls
+  (pageChange)="page = $event; pokemones = []; getPokemons()"
+>
+</pagination-controls>
